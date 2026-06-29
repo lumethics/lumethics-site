@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 400" width="420" height="400">
+  <!-- Lumethics primary logo — boxed LE monogram + wordmark, white wordmark, slogan below -->
+  <rect width="420" height="400" fill="#080C14"/>
+  <rect x="110" y="60" width="200" height="200" rx="3" fill="none" stroke="#C9A84C" stroke-width="2"/>
+  <text x="210" y="178" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="104" font-weight="600" letter-spacing="6" fill="#C9A84C">LE</text>
+  <text x="210" y="232" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="600" letter-spacing="3" fill="#F0F4FF">LUMETHICS</text>
+  <text x="210" y="312" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="22" font-style="italic" font-weight="500" fill="#C9A84C">Complexity, Converted</text>
+</svg>
