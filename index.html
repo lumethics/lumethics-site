@@ -402,6 +402,22 @@ select:focus-visible, textarea:focus-visible {
 .testimonials-more { text-align: center; margin-top: 40px; }
 
 /* ============================================================
+   SECTORS
+   ============================================================ */
+.sectors-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
+.sectors-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 16px; }
+.sectors-head p { color: var(--text-secondary); font-size: 1.05rem; }
+.sector-tags { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; max-width: 900px; margin: 0 auto; }
+.sector-pill {
+  border: 1px solid var(--border-gold); border-radius: 999px;
+  padding: 12px 24px; font-size: 0.98rem; font-weight: 500;
+  color: var(--text-primary); background: rgba(201,168,76,0.04);
+  transition: var(--transition);
+}
+.sector-pill:hover { background: rgba(201,168,76,0.12); transform: translateY(-2px); }
+.sectors-extra { text-align: center; color: var(--text-secondary); font-size: 0.95rem; margin-top: 24px; }
+
+/* ============================================================
    ABOUT
    ============================================================ */
 .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
@@ -479,7 +495,7 @@ select:focus-visible, textarea:focus-visible {
 .footer { border-top: 1px solid var(--border-gold); padding: 64px 0 40px; position: relative; z-index: 2; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; margin-bottom: 40px; }
 .footer .logo { margin-bottom: 14px; }
-.footer-logo-svg { width: 220px; height: auto; max-width: 100%; }
+.footer-logo-img { width: 150px; height: auto; max-width: 100%; }
 .footer-tag { color: var(--text-secondary); font-family: var(--font-display); font-style: italic; font-size: 1.05rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px; justify-content: flex-end; align-items: center; }
 .footer-links a { color: var(--text-secondary); font-size: 0.95rem; transition: color var(--transition); }
@@ -689,6 +705,12 @@ select:focus-visible, textarea:focus-visible {
         <h3>Disaster Recovery &amp; Continuity</h3>
         <p>Resilient business continuity by design. RTO/RPO planning, multi-site recovery, and tested DR frameworks that keep you running.</p>
       </article>
+      <!-- 12 -->
+      <article class="service-card reveal delay-2">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v2h8V3"/></svg></div>
+        <h3>Risk Management &amp; Governance</h3>
+        <p>Enterprise IT risk frameworks, audit readiness, and board-level governance. Identify, quantify, and mitigate technology risk before it becomes business risk.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -893,12 +915,30 @@ select:focus-visible, textarea:focus-visible {
   </div>
 </section>
 
+<!-- ============================ SECTORS ============================ -->
+<section class="section sectors" id="sectors">
+  <div class="container">
+    <div class="sectors-head reveal">
+      <h2>Sectors We Serve</h2>
+      <p>Two decades delivering in regulated, high-stakes environments where uptime, compliance, and trust are non-negotiable.</p>
+    </div>
+    <div class="sector-tags reveal">
+      <span class="sector-pill">Healthcare &amp; Medical Devices</span>
+      <span class="sector-pill">Manufacturing</span>
+      <span class="sector-pill">Telecoms</span>
+      <span class="sector-pill">Financial Services</span>
+      <span class="sector-pill">Professional Services</span>
+    </div>
+    <p class="sectors-extra reveal">With further experience across the education and not-for-profit sectors.</p>
+  </div>
+</section>
+
 <!-- ============================ ABOUT ============================ -->
 <section class="section" id="about">
   <div class="container about-grid">
     <div class="about-text reveal">
       <h2 style="font-size:clamp(2rem,4.5vw,3rem);margin-bottom:24px;">Senior Leadership.<br>Real Results.</h2>
-      <p class="lead">Lumethics was founded by a senior IT leader with 24+ years of experience across healthcare, telecoms, financial services, and regulated sectors. Having led teams of 50+ and multi-million-pound budgets across EMEA and LATAM, delivered enterprise transformation programmes, driven responsible AI adoption, and advised boards and C-suite executives, Lumethics brings enterprise-grade technology leadership to organisations that need it most — without the full-time overhead.</p>
+      <p class="lead">Lumethics was founded by a senior IT leader with 24+ years of experience across healthcare, telecoms, financial services, and regulated sectors. Having led teams of 50+ and multi-million-pound budgets across EMEA and LATAM, delivered enterprise transformation programmes, driven responsible AI adoption, embedded IT risk management and governance, and advised boards and C-suite executives, Lumethics brings enterprise-grade technology leadership to organisations that need it most — without the full-time overhead.</p>
     </div>
     <div class="cert-wrap reveal delay-1">
       <h4>Certifications &amp; Standards</h4>
@@ -1007,12 +1047,7 @@ select:focus-visible, textarea:focus-visible {
   <div class="container">
     <div class="footer-grid">
       <div>
-        <svg class="footer-logo-svg" viewBox="0 0 420 360" width="220" role="img" aria-label="Lumethics — Complexity, Converted" xmlns="http://www.w3.org/2000/svg">
-          <rect x="110" y="20" width="200" height="200" rx="3" fill="none" stroke="#C9A84C" stroke-width="2"/>
-          <text x="210" y="138" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="104" font-weight="600" letter-spacing="6" fill="#C9A84C">LE</text>
-          <text x="210" y="192" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="600" letter-spacing="3" fill="#F0F4FF">LUMETHICS</text>
-          <text x="210" y="272" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="22" font-style="italic" font-weight="500" fill="#E8C96A">Complexity, Converted</text>
-        </svg>
+        <img class="footer-logo-img" src="logo-full.svg" width="240" height="240" alt="Lumethics — Complexity, Converted" />
       </div>
       <div class="footer-links">
         <a href="#services">Services</a>
