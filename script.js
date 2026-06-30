@@ -35,14 +35,25 @@
   }
 
   /* ---------- Services dropdown (desktop nav) ---------- */
-  document.querySelectorAll('.nav-item').forEach(function (item) {
+  var navItems = document.querySelectorAll('.nav-item');
+  function closeOtherNavItems(except) {
+    navItems.forEach(function (item) {
+      if (item === except) return;
+      item.classList.remove('open');
+      var t = item.querySelector('.nav-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  }
+  navItems.forEach(function (item) {
     var toggle = item.querySelector('.nav-toggle');
     if (!toggle) return;
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
+      closeOtherNavItems(item);
       var open = item.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    item.addEventListener('mouseenter', function () { closeOtherNavItems(item); });
   });
   document.addEventListener('click', function (e) {
     document.querySelectorAll('.nav-item.open').forEach(function (item) {
