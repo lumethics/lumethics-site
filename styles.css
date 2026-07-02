@@ -140,6 +140,14 @@ select:focus-visible, textarea:focus-visible {
 .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
+.nav-phone {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);
+  transition: color var(--transition); white-space: nowrap;
+}
+.nav-phone svg { color: var(--accent-gold); flex-shrink: 0; }
+.nav-phone:hover { color: var(--text-primary); }
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 44px; padding: 0 26px;
@@ -548,7 +556,7 @@ select:focus-visible, textarea:focus-visible {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 768px) {
-  .nav-links, .nav .btn-primary.nav-cta { display: none; }
+  .nav-links, .nav .btn-primary.nav-cta, .nav-phone { display: none; }
   .hamburger { display: flex; }
   .problem-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
@@ -603,6 +611,8 @@ select:focus-visible, textarea:focus-visible {
   text-transform: uppercase; color: var(--accent-gold); padding: 14px 0 4px;
 }
 .drawer a.drawer-sub { font-size: 1rem; padding: 11px 0 11px 14px; }
+.drawer a.drawer-phone { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+.drawer a.drawer-phone svg { color: var(--accent-gold); flex-shrink: 0; }
 
 /* ---------- Page header (inner pages) ---------- */
 .page-header { padding-top: 140px; padding-bottom: 8px; position: relative; z-index: 2; overflow: hidden; }
