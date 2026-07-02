@@ -176,6 +176,7 @@ select:focus-visible, textarea:focus-visible {
 .hamburger {
   display: none; width: 44px; height: 44px; position: relative; z-index: 120;
   flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  margin-left: auto;
 }
 .hamburger span {
   display: block; width: 24px; height: 2px; background: var(--text-primary);
