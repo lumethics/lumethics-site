@@ -269,17 +269,27 @@
     }
 
     function loop() { draw(true); raf = requestAnimationFrame(loop); }
-    function start() { if (!running && !reduceMotion) { running = true; loop(); } }
+    function start() { clearTimeout(stopTimer); if (!running && !reduceMotion) { running = true; loop(); } }
     function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = null; }
 
     build();
     if (reduceMotion) { draw(false); }
     else { start(); }
 
+    var stopTimer;
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
-        if (visible) start(); else stop();
+        if (visible) {
+          start();
+        } else {
+          /* Debounce: iOS Safari fires rapid intersection toggles during
+             address-bar show/hide on scroll — stopping immediately kills
+             the rAF loop after a single frame. Only stop once genuinely
+             out of view for a sustained period. */
+          clearTimeout(stopTimer);
+          stopTimer = setTimeout(stop, 400);
+        }
       }, { threshold: 0 }).observe(canvas);
     }
 
@@ -361,13 +371,21 @@
         });
       }
       function loop(ts) { var dt = Math.min(0.05, (ts - last) / 1000) || 0.016; last = ts; draw(dt); raf = requestAnimationFrame(loop); }
-      function start() { if (!running && !reduceMotion) { running = true; last = performance.now(); raf = requestAnimationFrame(loop); } }
+      function start() { clearTimeout(stopTimer2); if (!running && !reduceMotion) { running = true; last = performance.now(); raf = requestAnimationFrame(loop); } }
       function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = null; }
 
       build();
       if (reduceMotion) draw(0); else start();
+      var stopTimer2;
       if ('IntersectionObserver' in window) {
-        new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0 }).observe(canvas);
+        new IntersectionObserver(function (es) {
+          if (es[0].isIntersecting) {
+            start();
+          } else {
+            clearTimeout(stopTimer2);
+            stopTimer2 = setTimeout(stop, 400);
+          }
+        }, { threshold: 0 }).observe(canvas);
       }
       var rt2;
       window.addEventListener('resize', function () {
