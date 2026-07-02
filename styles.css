@@ -170,7 +170,7 @@ select:focus-visible, textarea:focus-visible {
 }
 .btn-ghost:hover { background: rgba(201,168,76,0.08); transform: translateY(-2px); }
 .btn:active { transform: translateY(0) scale(0.97); }
-.nav .btn-primary { min-height: 44px; }
+.nav .btn-primary.nav-cta { min-height: 38px; padding: 0 20px; font-size: 0.88rem; }
 
 /* Hamburger */
 .hamburger {
